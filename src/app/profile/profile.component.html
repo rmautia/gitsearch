@@ -1,0 +1,54 @@
+<div *ngIf="user" id="user">
+   <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{user.name}}</h3>
+        </div>
+        <div class="panel-body" id="ligrp">
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="img-thumbnail" src="{{user.avatar_url}}">
+                    <a class="btn btn-default btn-block bg-success" target="_blank" href="{{user.html_url}}">View Profile</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="stats">
+                        <span class="btn btn-info" id="zzz">{{user.public_repos}} Public Repos</span>
+                        <span class="btn btn-danger" id="zzz">{{user.public_gists}} Public Gists</span>
+                        <span class="btn btn-warning" id="zzz">{{user.followers}} Followers</span>
+                        <span class="btn btn-primary" id="zzz">{{user.following}} Following</span>
+                    </div>
+                    <br>
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Username: </strong>{{user.login}}</li>
+                        <li class="list-group-item"><strong>Location: </strong>{{user.location}}</li> 
+                        <li class="list-group-item"><strong>Email: </strong>{{user.email}}</li> 
+                        <li class="list-group-item"><strong>Blog: </strong>{{user.blog}}</li> 
+                        <li class="list-group-item"><strong>Member Since: </strong>{{user.created_at|date}}</li> 
+                        <li class="list-group-item"><strong>Created </strong>{{user.created_at|relativeTime}} days ago</li>
+                    </ul>
+                </div>    
+            </div>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">User Repositories</h3>
+        </div>
+        <div class="panel-body">
+            <div *ngFor="let repo of repo">
+                  <div class="row">
+                    <div class="col-md-9">
+                        <h4><a target="_blank" href="{{repo.html_url}}">{{repo.name}}</a></h4> <a class="hover" ></a>
+                        <p>{{repo.description}}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="btn btn-danger " id="zzz">{{repo.watchers}} Watchers  </span>
+                        <span class="btn btn-primary" id="zzz">{{repo.forks}} Forks  </span>
+                        <span class="btn btn-success" id="zzz">{{repo.stargazers_count}} Stars </span>
+                    </div>  
+                  </div>
+                  <hr>
+            </div>
+        </div>
+    </div>
+</div> 
